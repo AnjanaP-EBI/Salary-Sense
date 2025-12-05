@@ -36,7 +36,7 @@ const handleMenu = () => {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
-          <main className="flex h-[720px] w-[1100px] flex-col items-center bg-white rounded-xl border  bg-whitelack sm:items-start darl:bg-black">
+          <main className="flex h-[720px] w-[1100px] flex-col hover:text-black bg-white rounded-xl border  bg-whitelack sm:items-start darl:bg-black">
         <header className="justify justify-between flex items-center w-[1100px] h-12 bg-[#0839CC] rounded-t-xl">
                   <div className="flex h-full items-center items-row">
                     <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center rounded-tl-xl">
@@ -66,8 +66,8 @@ const handleMenu = () => {
                       <AiOutlineClose size={20} color="white" onClick={handleClose} />
                     </div>
                   </div>
-                </header>
-        {children}</main></div>
+                </header><div className="flex-1 w-full flex items-center justify-center">
+        {children}</div></main></div>
       </body>
     </html>
   );
