@@ -26,23 +26,30 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 type IncomeEntry = {
   id: string;
   name: string;
+  amount: number;
+  date?:Date;
+  open?:boolean;
 };
 
 type ExpanceEntry = {
   id: string;
   name: string;
+  amount: number;
+  date?:Date;
+  open?:boolean;
 };
 
 export default function PlanPage() {
   const [openIncome, setOpenIncome] = useState(false);
   const [incomeDate, setIncomeDate] = useState<Date | undefined>(undefined);
-  const [incomeEntries, setIncomeEntries] = useState([
-    { id: "", name: "", amount: 0, date: undefined, open: false },
+  const [incomeEntries, setIncomeEntries] = useState<IncomeEntry[]>([
+    { id: "", name: "", amount: 0, date: undefined, },
   ]);
   const [openExpanse, setOpenExpanse] = useState(false);
   const [expanseDate, setExpanseDate] = useState<Date | undefined>(undefined);
-  const [expanseEntries, setExpanseEntries] = useState([
-    { id: "", name: "", amount: 0, date: undefined, open: false },
+  const [expanseType, setExpanseType] = useState("");
+  const [expanseEntries, setExpanseEntries] = useState<IncomeEntry[]>([
+    { id: "", name: "", amount: 0, date: undefined, },
   ]);
   const [selectStorage, setSelectStorage] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState("");
@@ -188,11 +195,16 @@ export default function PlanPage() {
                 <div className="w-1/4">
                   <Input placeholder="Income Name" />
                 </div>
-                <div className="w-1/6">
+                <div className="w-1/8">
                   <Input placeholder="Amount" />
                 </div>
-                <div className="w-1/6">
-                  <Popover open={openIncome} onOpenChange={setOpenIncome}>
+                <div className="w-1/8">
+                  <Popover open={incomeEntry.open} 
+                  onOpenChange={(isopen) => {
+                    const newIncomeEntries = [...incomeEntries];
+                    newIncomeEntries[incomeIndex].open = isopen;
+                    setIncomeEntries(newIncomeEntries); 
+                  }}>
                     <PopoverTrigger asChild>
                       <Button
                         variant="outline"
@@ -211,11 +223,13 @@ export default function PlanPage() {
                     >
                       <Calendar
                         mode="single"
-                        selected={incomeDate}
+                        selected={incomeEntry.date}
                         captionLayout="dropdown"
                         onSelect={(date) => {
-                          setIncomeDate(date);
-                          setOpenIncome(false);
+                          const newIncomeEntries = [...incomeEntries];
+                          newIncomeEntries[incomeIndex].date = date;
+                          setIncomeEntries(newIncomeEntries);
+                          
                         }}
                       />
                     </PopoverContent>
@@ -247,11 +261,15 @@ export default function PlanPage() {
             <div className="w-1/4">
               <Input placeholder="Expanse Name" />
             </div>
-            <div className="w-1/6">
+            <div className="w-1/8">
               <Input placeholder="Amount" />
             </div>
-            <div className="w-1/6">
-              <Popover open={openExpanse} onOpenChange={setOpenExpanse}>
+            <div className="w-1/8">
+              <Popover open={expanseEntry.open} onOpenChange={(isopen) => {
+                const newExpanseEntries = [...expanseEntries];
+                newExpanseEntries[expanseIndex].open = isopen;
+                setExpanseEntries(newExpanseEntries);
+              }}>
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
@@ -270,15 +288,43 @@ export default function PlanPage() {
                 >
                   <Calendar
                     mode="single"
-                    selected={expanseDate}
+                    selected={expanseEntry.date}
                     captionLayout="dropdown"
                     onSelect={(date) => {
-                      setExpanseDate(expanseDate);
+                      const newExpanseEntries = [...expanseEntries];
+                      newExpanseEntries[expanseIndex].date = date;
+                      setExpanseEntries(newExpanseEntries);
                       setOpenExpanse(false);
                     }}
                   />
                 </PopoverContent>
               </Popover>
+            </div>
+            <div className="w-1/8">
+              <Select
+                value={expanseType}
+                onValueChange={(s) => setExpanseType(s)}
+              >
+                <SelectTrigger className="w-full h-8 border rounded-md">
+                  <SelectValue placeholder="Select Type" />
+                </SelectTrigger>
+                <SelectContent className="bg-white dark:bg-gray-700 rounded-lg w-full py-3 gap-2 shadow-lg border items-center ">
+                  <SelectGroup>
+                    <SelectItem value="housing" key="housing">
+                      Housing
+                    </SelectItem>
+                    <SelectItem value="food" key="food">
+                      Food
+                    </SelectItem>
+                    <SelectItem value="transport" key="transport">
+                      Transport
+                    </SelectItem>
+                    <SelectItem value="other" key="other">
+                      Other
+                    </SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
             </div>
             { expanseIndex === expanseEntries.length - 1 && (
             <HiPlusCircle
