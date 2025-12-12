@@ -22,6 +22,9 @@ import { HiPlusCircle, HiMinusCircle } from "react-icons/hi";
 import { Button } from "@/components/ui/button";
 import { BsCalendarDateFill } from "react-icons/bs";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { toast } from "sonner";
+import { PiWarningCircleBold } from "react-icons/pi";
+import { Pi } from "lucide-react";
 
 type IncomeEntry = {
   id: string;
@@ -130,30 +133,6 @@ export default function PlanPage() {
                         {currency.code} - {currency.name}
                       </SelectItem>
                     ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-          {/* saving location */}
-          <div className="flex flex-row w-full gap-5 items-center text-xs">
-            <div className="w-1/5">Data Saving location</div>
-            <div className="w-1/4">
-              <Select
-                value={selectStorage}
-                onValueChange={(s) => setSelectStorage(s)}
-              >
-                <SelectTrigger className="w-full h-8 border rounded-md">
-                  <SelectValue placeholder="Select Saving Location" />
-                </SelectTrigger>
-                <SelectContent className="bg-white dark:bg-gray-700 rounded-lg w-full py-3 gap-2 shadow-lg border items-center ">
-                  <SelectGroup>
-                    <SelectItem value="local" key="local">
-                      Local Storage
-                    </SelectItem>
-                    <SelectItem value="cloud" key="cloud">
-                      Cloud Storage
-                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -350,7 +329,7 @@ export default function PlanPage() {
           >
             Cansel
           </Button>
-          <Button className="bg-blue-600 hover:bg-blue-800 text-white text-sm h-8 px-6 shadow-lg rounded-sm">
+          <Button className="bg-blue-600 hover:bg-blue-800 text-white text-sm h-8 px-6 shadow-lg rounded-sm" onClick={() => toast("Plan Saved!", {icon:<PiWarningCircleBold className="text-green"/>})}>
             Save
           </Button>
         </div>
