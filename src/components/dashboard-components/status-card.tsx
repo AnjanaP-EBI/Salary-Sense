@@ -54,7 +54,7 @@ export function StatusCard( {thisMonthTotalExpanses,intendAmount,thisMonthTotalB
 
 
     return(
-        <div className="flex flex-col items-center w-full h-43.5 border border-gray-300 shadow rounded-xl">
+        <div className="flex flex-col items-center amber-500 w-full h-43.5 border border-gray-300 shadow rounded-xl">
             <div className="flex w-full items-center justify-center">
                 <h1 className="text-xs pt-3">Current Status</h1>
             </div>

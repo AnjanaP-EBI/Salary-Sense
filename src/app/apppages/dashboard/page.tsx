@@ -32,38 +32,7 @@ export default function DashboardPage() {
   };
   return (
     <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex h-full w-full flex-col items-center bg-white rounded-b-xl border  bg-whitelack sm:items-start darl:bg-black">
-        
-        {/* <header className="justify justify-between flex items-center w-[1100px] h-12 bg-[#0839CC] rounded-t-xl">
-          <div className="flex h-full items-center items-row">
-            <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center rounded-tl-xl">
-              <AiOutlineMenu size={20} color="white" onClick={handleMenu} />
-            </div>
-            <div className="flex flex-row m-2 items-center text-white">
-              <div className="font-semibold">Salary Sence</div>
-              <div>-Your personal income planner</div>
-            </div>
-          </div>
-          <div className="flex items justify-end items-center my-2  w-45 h-full">
-            <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center ">
-              <AiOutlineMinus
-                size={20}
-                color="white"
-                onClick={handleMinimize}
-              />
-            </div>
-            <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center ">
-              <AiOutlineFullscreen
-                size={20}
-                color="white"
-                onClick={handlerestore}
-              />
-            </div>
-            <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center rounded-tr-xl">
-              <AiOutlineClose size={20} color="white" onClick={handleClose} />
-            </div>
-          </div>
-        </header> */}
+      <main className="flex h-[682px] w-full flex-col items-center bg-white rounded-b-xl border  bg-whitelack sm:items-start darl:bg-black">
         
         <div className="flex flex-row justify-between w-full p-4 gap-4">
           <div className="w-1/3 flex flex-col gap-4">

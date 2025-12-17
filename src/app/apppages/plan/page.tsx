@@ -104,9 +104,9 @@ export default function PlanPage() {
 
   return (
     <div className="flex h-full w-[1100px] items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex h-full w-full flex-col items-center bg-white rounded-b-xl border border-b-gray-300  sm:items-start darl:bg-black">
+      <main className="flex h-[682px] w-full flex-col items-center bg-white rounded-b-xl border border-b-gray-300  sm:items-start darl:bg-black">
         {/* header */}
-        <div className="mx-8 mt-10">
+        <div className="mx-8 mt-14">
           <h1 className="text-md font-medium ">Build Your Plan</h1>
         </div>
         <div className="w-full px-8 flex justify-center">
@@ -222,13 +222,15 @@ export default function PlanPage() {
                   onClick={handleAddIncome}
                 />
                 )}
-                {incomeIndex !== 0 && (
-                <HiMinusCircle
+                
+                {incomeEntries.length > 1 && (
+                  < HiMinusCircle
                   size={20}
                   className="text-red-600 cursor-pointer"
                   onClick={() => handleRemoveIncome(incomeIndex)}
-                />
-                )}
+                
+                />)}
+                
               </div>
             ))}
           </div>
@@ -311,7 +313,7 @@ export default function PlanPage() {
               className="text-green-600 cursor-pointer"
               onClick={handleAddExpance}
             />)}
-            { expanseIndex !== 0 && (
+            { expanseEntries.length  > 1 && (
             <HiMinusCircle
               size={20}
               className="text-red-600 cursor-pointer"

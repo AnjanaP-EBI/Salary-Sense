@@ -24,7 +24,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
   return (
-    <div className="flex flex-col justify-between items-center  w-full h-55 border border-gray-300 shadow rounded-xl">
+    <div className="flex flex-col justify-between items-center w-full h-55 border border-gray-300 shadow rounded-xl">
         <h1 className="pt-2 text-xs">Income and Expanses of last 6 month</h1>
         <div className="h-auto w-4/5">
       <ChartContainer config={chartConfig} className="pb-3">

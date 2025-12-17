@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./../globals.css";
 import {
   AiOutlineFullscreen,
   AiOutlineMenu,
@@ -10,9 +9,9 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import { Toaster } from "@/components/ui/sonner";
-import { SidebarProvider,SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 import { DrawerSidebar } from "@/components/drawersidebar";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +28,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const handleMenu = () => {
-    console.log("Menu clicked");
-  };
   const handleMinimize = () => {
     console.log("Minimize clicked");
   };
@@ -42,6 +38,8 @@ export default function RootLayout({
     console.log("Close clicked");
   };
 
+
+
   const [sidebarOpen, setSidebarOpen] =  useState(false);
   return (
     <html lang="en">
@@ -49,14 +47,21 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
-          <DrawerSidebar open={sidebarOpen} onOpenChange={setSidebarOpen}/>
+          
           
             <main className="flex h-[720px] w-[1100px] flex-col hover:text-black bg-white rounded-xl border  bg-whitelack sm:items-start darl:bg-black">
               
             <header className="justify justify-between flex items-center w-[1100px] h-12 bg-[#0839CC] rounded-t-xl">
               <div className="flex h-full items-center items-row">
                 <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center rounded-tl-xl"
-                onClick={() => setSidebarOpen(true)}>
+                onClick={() => {
+                  if (sidebarOpen){
+                    setSidebarOpen(false)
+                  }
+                else
+                   setSidebarOpen(true)
+                  }   
+                }>
                   <AiOutlineMenu size={20} color="white" />
                 </div>
                 <div className="flex flex-row m-2 items-center text-white">
@@ -88,9 +93,11 @@ export default function RootLayout({
                 </div>
               </div>
             </header>
+            <DrawerSidebar open={sidebarOpen} onOpenChange={setSidebarOpen}/>
             <div className="flex-1 w-full flex items-center justify-center">
-              
-              {children}
+              <LanguageProvider>
+                
+              {children}</LanguageProvider>
             </div>
           </main>
           <Toaster position="top-center" />

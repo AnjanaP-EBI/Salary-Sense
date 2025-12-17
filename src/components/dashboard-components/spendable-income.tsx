@@ -25,7 +25,7 @@ export function SpendableIncome() {
            </div>
            <div className="justify-end w-1/3">
             <ChartContainer config={chartConfig}
-            className=" h-[80px] w-[80px]  ">
+            className=" h-20 w-20  ">
             <RadialBarChart
               width={48}
               height={48}

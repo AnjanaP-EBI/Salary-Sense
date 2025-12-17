@@ -3,7 +3,6 @@ import { Input } from "../ui/input";
 import { useState } from "react";
 import {
   Dialog,
-  DialogDescription,
   DialogHeader,
   DialogTrigger,
   DialogContent,
@@ -16,6 +15,13 @@ import { Calendar } from "../ui/calendar";
 import { BsCalendarDateFill } from "react-icons/bs";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { toast } from "sonner";
+import { FaCircleCheck, FaCircleMinus } from "react-icons/fa6";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
 
 interface dashboardData {
   newExpanse: string;
@@ -34,6 +40,14 @@ export function MonthlyExpanses() {
     newExpanse: "",
     expanseAmount: 0,
   });
+
+  const [done, setDone] = useState(false);
+  const [doneMap, setDoneMap] = useState<Record<number, boolean>>({});
+  const [expanses, setExpanses] = useState([
+    { Name: "Home loan", AmountValue: "130000" ,  },
+    { Name: "Vehical Finanse", AmountValue: "400000" },
+  ]);
+
 
   return (
     <div className="w-full h-full justify-between rounded-lg">
@@ -102,10 +116,15 @@ export function MonthlyExpanses() {
             </div>
 
             <div className="flex flex-row items-center justify-end gap-2">
-              <Button className=" mt-4 bg-blue-800 hover:bg-blue-900"
-              onClick={() => 
-                toast("Expanse Added Successfully",{ description: "Your new expanse has been added to the dashboard." }
-                )}>
+              <Button
+                className=" mt-4 bg-blue-800 hover:bg-blue-900"
+                onClick={() =>
+                  toast("Expanse Added Successfully", {
+                    description:
+                      "Your new expanse has been added to the dashboard.",
+                  })
+                }
+              >
                 Add
               </Button>
             </div>
@@ -114,7 +133,41 @@ export function MonthlyExpanses() {
       </div>
       <div className="border">
         <div className="  w-full h-122">
-          <ScrollArea></ScrollArea>
+          <ScrollArea>
+            {expanses.map((expanse, index) => (
+              <div
+                key={index}
+                className="flex flex-row justify-between items-center text-sm pt-1"
+              >
+                <div className=" p-2 flex flex-row gap-2">
+                  {done ? (
+                    <FaCircleCheck size="14px" color="green" />
+                  ) : (
+                    <FaCircleMinus size="14px" color="#d3d3d3" />
+                  )}
+                </div>
+                <ContextMenu>
+                  <div className="w-2/3"><ContextMenuTrigger><div className="w-full  pl-1">
+                    {expanse.Name}
+                  </div></ContextMenuTrigger></div>
+                  
+                  <ContextMenuContent>
+                    <ContextMenuItem
+                      onClick={() => {
+                        setDone(done);
+                      }}
+                    >
+                      Mark As Done
+                    </ContextMenuItem>
+                    <ContextMenuItem>Remove</ContextMenuItem>
+                  </ContextMenuContent>
+                </ContextMenu>
+                <div className="w-1/3 justify-end flex pr-3">
+                  {expanse.AmountValue}
+                </div>
+              </div>
+            ))}
+          </ScrollArea>
         </div>
       </div>
       <div className="h-8 bg-gray-300 rounded-b-lg flex flex-row justify-between items-center">
