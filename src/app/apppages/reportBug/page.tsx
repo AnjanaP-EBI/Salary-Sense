@@ -33,7 +33,7 @@ export default function PlanPage() {
 
   return (
     <div className="flex h-full w-[1100px] items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex h-[682px] w-full flex-col items-center bg-white rounded-b-xl border border-b-gray-300  sm:items-start darl:bg-black">
+      <main className="flex h-[682px] w-full flex-col items-center bg-white border border-b-gray-300  sm:items-start darl:bg-black">
         {/* header */}
         <div className="mx-8 mt-10">
           <h1 className="text-md font-medium ">Report a Bug</h1>

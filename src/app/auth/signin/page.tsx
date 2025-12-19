@@ -2,6 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function SignIn() {
   return (
@@ -20,18 +21,18 @@ export default function SignIn() {
           type="password"
           placeholder="Password"
         />
-        <Button className="bg-blue-600 rounded-full mb-4 hover:bg-gray-400 hover:text-black" size="sm">
+        <Link href="/apppages/dashboard"><Button className="bg-blue-600 rounded-full mb-4 hover:bg-gray-400 hover:text-black" size="sm">
           Sign In
-        </Button>
+        </Button></Link>
         <div className="text-xs flex flex-col text-white items-center justify-center">
           <h2 className="flex justify-center text-blue-400 mb-1">
             <a href="">Forgot Password</a>
           </h2>
           <h2>
             Don't have an account?{" "}
-            <a href="" className="text-blue-400">
+            <Link href="/auth/signup" className="text-blue-400">
               Sign Up
-            </a>
+            </Link>
           </h2>
         </div>
       </div>

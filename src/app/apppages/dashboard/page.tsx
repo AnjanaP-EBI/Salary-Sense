@@ -32,7 +32,7 @@ export default function DashboardPage() {
   };
   return (
     <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex h-[682px] w-full flex-col items-center bg-white rounded-b-xl border  bg-whitelack sm:items-start darl:bg-black">
+      <main className="flex h-[682px] w-full flex-col items-center bg-white border  bg-whitelack sm:items-start darl:bg-black">
         
         <div className="flex flex-row justify-between w-full p-4 gap-4">
           <div className="w-1/3 flex flex-col gap-4">

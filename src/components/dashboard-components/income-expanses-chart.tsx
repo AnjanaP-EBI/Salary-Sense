@@ -36,7 +36,7 @@ const chartConfig = {
           </linearGradient>
           <linearGradient id="expanseBarGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#ADADAD" />
-            <stop offset="100%" stopColor="#FF8FB7" />  
+            <stop offset="100%" stopColor="#eeeeee" />  
           </linearGradient></defs>
           <CartesianGrid vertical={false} />
           <XAxis

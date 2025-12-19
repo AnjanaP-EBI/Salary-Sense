@@ -67,9 +67,9 @@ export function DrawerSidebar({ open, onOpenChange }: DrawerSidebarProps) {
           {/*footer */}
           <div>
             <div className="text-[8px] text-gray-600 border-b border-gray-400 mx-2 flex flex-col items-center justify-center pb-2"><h1>Designed and built by Anjana Prabhashwara</h1></div>
-            <div className="flex flex-col justify-center items-center py-4 w-full rounded-bl-xl text-md font-semibold hover:bg-blue-100" 
+            <Link href="/auth/signin"><div className="flex flex-col justify-center items-center py-4 w-full rounded-bl-xl text-md font-semibold hover:bg-blue-100" 
             // onClick={() => setWindowClose(true)}
-            >Sign Out</div>
+            >Sign Out</div></Link>
           </div>
 
         </div>

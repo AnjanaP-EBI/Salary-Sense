@@ -2,6 +2,8 @@
 
 import { RadialBar, RadialBarChart, Tooltip, PolarGrid, PolarRadiusAxis, Label } from "recharts";
 import { ChartContainer } from "../ui/chart";
+import { LiquidGauge } from "react-liquid-gauge"
+import { Value } from "@radix-ui/react-select";
 
 interface spendAmountdata {
     precentage: number;
@@ -48,6 +50,20 @@ export function SpendableIncome() {
             </RadialBarChart>
             </ChartContainer>
            </div>
+           {/* <div style = {{ width:20, height:20}}>
+            <LiquidGauge
+              value={Value}
+        width={200}
+        height={200}
+        waveFrequency={2}
+        waveAmplitude={1}
+        textSize={1}
+        waveSpeed={0.2}
+        circleStyle={{ fill: "#00BFFF" }}
+        waveStyle={{ fill: "#1E90FF" }}
+        textStyle={{ fill: "#000", fontSize: "24px" }}
+             />
+           </div> */}
         </div>
     );
 }

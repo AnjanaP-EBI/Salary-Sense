@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 export default function SignIn() {
   return (
@@ -31,9 +32,9 @@ export default function SignIn() {
         <div className="text-xs flex flex-col text-white items-center justify-center">
           <h2>
             Already have an account?{" "}
-            <a href="" className="text-blue-400">
-              Sign In
-            </a>
+            <Link href="/auth/signin" ><div className="text-blue-400">
+              Sign In</div>
+            </Link>
           </h2>
         </div>
       </div>

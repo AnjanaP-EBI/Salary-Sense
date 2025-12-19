@@ -11,7 +11,9 @@ import {
 import { Toaster } from "@/components/ui/sonner";
 import { DrawerSidebar } from "@/components/drawersidebar";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { useLanguage } from "@/context/LanguageContext"
+import { getCurrentWindow } from "@tauri-apps/api/window";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,16 +30,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const handleMinimize = () => {
-    console.log("Minimize clicked");
-  };
-  const handlerestore = () => {
-    console.log("Restore clicked");
-  };
-  const handleClose = () => {
-    console.log("Close clicked");
-  };
-
 
 
   const [sidebarOpen, setSidebarOpen] =  useState(false);
@@ -51,9 +43,9 @@ export default function RootLayout({
           
             <main className="flex h-[720px] w-[1100px] flex-col hover:text-black bg-white rounded-xl border  bg-whitelack sm:items-start darl:bg-black">
               
-            <header className="justify justify-between flex items-center w-[1100px] h-12 bg-[#0839CC] rounded-t-xl">
+            <header data-tauri-drag-region className="justify justify-between flex items-center w-[1100px] h-12 bg-[#0839CC] ">
               <div className="flex h-full items-center items-row">
-                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center rounded-tl-xl"
+                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center "
                 onClick={() => {
                   if (sidebarOpen){
                     setSidebarOpen(false)
@@ -70,25 +62,25 @@ export default function RootLayout({
                 </div>
               </div>
               <div className="flex items justify-end items-center my-2  w-45 h-full">
-                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center ">
+                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center "  onClick={() => getCurrentWindow().minimize()}>
                   <AiOutlineMinus
                     size={20}
                     color="white"
-                    onClick={handleMinimize}
+                   
                   />
                 </div>
-                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center ">
+                {/* <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center ">
                   <AiOutlineFullscreen
                     size={20}
                     color="white"
                     onClick={handlerestore}
                   />
-                </div>
-                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center rounded-tr-xl">
+                </div> */}
+                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center " onClick={() => getCurrentWindow().close()}>
                   <AiOutlineClose
                     size={20}
                     color="white"
-                    onClick={handleClose}
+                    
                   />
                 </div>
               </div>

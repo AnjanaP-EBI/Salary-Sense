@@ -20,7 +20,7 @@ export default function SettingsPage() {
   const { lang, setLang } = useLanguage();
   return (
     <div className="flex h-full w-[1100px] items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex h-[682px] w-full flex-col items-center bg-white rounded-b-xl border border-b-gray-300  sm:items-start darl:bg-black">
+      <main className="flex h-[682px] w-full flex-col items-center bg-white  border border-b-gray-300  sm:items-start darl:bg-black">
         {/* settings header */}
         <ScrollArea className="w-full h-[480px] mt-5">
           <div className="mx-8 mt-10">
