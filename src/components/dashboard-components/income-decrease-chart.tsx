@@ -30,7 +30,7 @@ const chartConfig = {
 
     return (
         <div className="flex flex-col items-center  w-full h-55 border border-gray-300 shadow rounded-xl gap-2">
-            <h1 className="text-xs pt-3">This Month Income Expense</h1>
+            <h1 className="text-xs pt-3">This Month Income decreasment</h1>
             <ChartContainer config={chartConfig}
               className="h-40 w-auto ">
                 <LineChart

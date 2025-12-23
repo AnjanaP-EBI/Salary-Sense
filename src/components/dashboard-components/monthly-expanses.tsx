@@ -132,7 +132,7 @@ export function MonthlyExpanses() {
         </Dialog>
       </div>
       <div className="border">
-        <div className="  w-full h-122">
+        <div className="  w-full h-110">
           <ScrollArea>
             {expanses.map((expanse, index) => (
               <div
@@ -170,7 +170,7 @@ export function MonthlyExpanses() {
           </ScrollArea>
         </div>
       </div>
-      <div className="h-8 bg-gray-300 rounded-b-lg flex flex-row justify-between items-center">
+      <div className="h-7 bg-gray-300 rounded-b-lg flex flex-row justify-between items-center">
         <h1 className="pl-3  text-xs font-medium">Total Expanses</h1>
         <h2 className="pr-3  text-xs font-medium">700000</h2>
       </div>
