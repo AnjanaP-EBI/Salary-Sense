@@ -1,10 +1,10 @@
+'use client'
 import { Pie, PieChart, ResponsiveContainer, Legend } from "recharts";
 import { ChartTooltip, ChartContainer, ChartConfig } from "../ui/chart";
-import { pt } from "date-fns/locale";
 
 export function UsagePercentage() {
   const chartData = [
-    { Category: "Housing", Usage: 40, fill: ["#120386"] },
+    { Category: "Housing", Usage: 40, fill: "#120386" },
     { Category: "Food", Usage: 20, fill: "#1666ba" },
     { Category: "Transport", Usage: 15, fill: "#0F8FA0" },
     { Category: "Others", Usage: 25, fill: "#23D7FF" },
@@ -33,9 +33,9 @@ export function UsagePercentage() {
   } satisfies ChartConfig;
 
   return (
-    <div className="flex flex-col items-center  w-full h-55 border border-gray-300 shadow rounded-xl">
-      <h1 className="pt-3 text-xs">Percentage of Usage</h1>
-      <ResponsiveContainer width="90%" height="90%" className={"pt-1"}>
+    <div className="flex flex-col items-center  w-full h-[35%] bg-white border dark:bg-[#696969] border-gray-300 dark:border-[#525252] shadow-lg rounded-2xl">
+      <h1 className="pt-[2%] text-smd font-medium uppercase">Percentage of Usage</h1>
+      <ResponsiveContainer width="90%" height="90%" className={"pt-[1%]"}>
         <PieChart>
           <ChartTooltip />
           <Pie
@@ -43,7 +43,7 @@ export function UsagePercentage() {
             dataKey={"Usage"}
             nameKey={"Category"}
             innerRadius={30}
-            strokeWidth={1}
+            strokeWidth={0}
             // label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
           />
           <Legend
@@ -52,7 +52,7 @@ export function UsagePercentage() {
             layout="vertical"
             iconType="square"
             iconSize={10}
-            wrapperStyle={{ fontSize: "12px" }}
+            wrapperStyle={{ fontSize: "18px" }}
           />
         </PieChart>
       </ResponsiveContainer>

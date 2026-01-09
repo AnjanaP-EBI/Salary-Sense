@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../globals.css";
@@ -10,7 +10,7 @@ import {
 } from "react-icons/ai";
 import { Toaster } from "@/components/ui/sonner";
 import { DrawerSidebar } from "@/components/drawersidebar";
-import { LanguageProvider } from "@/context/LanguageContext";
+import { AppProvider } from "@/context/AppContext";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 
 
@@ -24,6 +24,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+
 
 export default function RootLayout({
   children,
@@ -41,9 +43,9 @@ export default function RootLayout({
         <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
           
           
-            <main className="flex h-[720px] w-[1100px] flex-col hover:text-black bg-white rounded-xl border  bg-whitelack sm:items-start darl:bg-black">
+            <main className="flex h-screen w-screen flex-col bg-white rounded-xl border  bg-whitelack sm:items-start darl:bg-black">
               
-            <header data-tauri-drag-region className="justify justify-between flex items-center w-[1100px] h-12 bg-[#0839CC] ">
+            <header data-tauri-drag-region className="justify justify-between flex items-center w-screen h-12 bg-[#0839CC] ">
               <div className="flex h-full items-center items-row">
                 <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center "
                 onClick={() => {
@@ -69,13 +71,13 @@ export default function RootLayout({
                    
                   />
                 </div>
-                {/* <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center ">
+                <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center " onClick={() => getCurrentWindow().maximize}>
                   <AiOutlineFullscreen
                     size={20}
                     color="white"
-                    onClick={handlerestore}
+                    
                   />
-                </div> */}
+                </div>
                 <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center " onClick={() => getCurrentWindow().close()}>
                   <AiOutlineClose
                     size={20}
@@ -87,9 +89,9 @@ export default function RootLayout({
             </header>
             <DrawerSidebar open={sidebarOpen} onOpenChange={setSidebarOpen}/>
             <div className="flex-1 w-full flex items-center justify-center">
-              <LanguageProvider>
-                
-              {children}</LanguageProvider>
+              <AppProvider>
+              {children}
+              </AppProvider>
             </div>
           </main>
           <Toaster position="top-center" />

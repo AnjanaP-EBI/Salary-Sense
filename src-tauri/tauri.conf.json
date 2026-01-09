@@ -13,10 +13,8 @@
     "windows": [
       {
         "title": "Salary sense",
-        "width": 1102,
-        "height": 720,
         "resizable": false,
-        "fullscreen": false,
+        "fullscreen": true,
         "decorations": false,
         "transparent": true,
         "center": true

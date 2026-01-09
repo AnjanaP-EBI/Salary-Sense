@@ -32,11 +32,11 @@ export default function PlanPage() {
 
 
   return (
-    <div className="flex h-full w-[1100px] items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex h-[682px] w-full flex-col items-center bg-white border border-b-gray-300  sm:items-start darl:bg-black">
+    <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
+      <main className="flex h-full w-full flex-col items-center bg-white border border-b-gray-300  sm:items-start  dark:bg-[#242424]">
         {/* header */}
         <div className="mx-8 mt-10">
-          <h1 className="text-md font-medium ">Report a Bug</h1>
+          <h1 className="text-2xl font-medium ">Report a Bug</h1>
         </div>
         <div className="w-full px-8 flex justify-center">
           <Separator className="my-1 " />
@@ -46,26 +46,26 @@ export default function PlanPage() {
           
           {/* your email */}
           <div className="flex flex-row w-full gap-5 items-center text-xs">
-            <div className="w-1/5">Your Email</div>
+            <div className="w-1/5 text-lg">Your Email</div>
             <div className="w-2/4 flex flex-row gap-2 items-center">
-              <Input />
+              <Input className="h-12"/>
             </div>
           </div>
           {/* Bug In */}
           <div className="flex flex-row w-full pt-6 items-center gap-5 text-xs">
-            <div className="w-1/5">Bug in</div>
+            <div className="w-1/5 text-lg">Bug in</div>
             <div className="w-2/4">
               <Select
                 value={selectedPage}
                 onValueChange={(v) => setSelectedPage(v)}
               >
-                <SelectTrigger className="w-full h-8 border rounded-md">
+                <SelectTrigger size="lg" className="w-full h-12 border rounded-md" >
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
-                <SelectContent className="bg-white dark:bg-gray-700 rounded-lg w-full py-3 gap-2 shadow-lg border items-center ">
+                <SelectContent className="bg-white dark:bg-gray-700 rounded-lg w-full py-3 gap-2 shadow-lg border items-center text-lg">
                   <SelectGroup>
                     {pages.map((bugpage) => (
-                      <SelectItem key={bugpage.code} value={bugpage.code}>
+                      <SelectItem className="text-lg" key={bugpage.code} value={bugpage.code}>
                         {bugpage.name}
                       </SelectItem>
                     ))}
@@ -76,7 +76,7 @@ export default function PlanPage() {
           </div>
           {/* details */}
           <div className="flex flex-row w-full pt-2 gap-5 items-start text-xs">
-            <div className="w-1/5">Describe the bug</div>
+            <div className="w-1/5 text-lg">Describe the bug</div>
             <div className="w-1/2">
               <Textarea />
             </div>
@@ -85,7 +85,8 @@ export default function PlanPage() {
           {/* submit button */}
           <div className="w-full flex px-8 justify-end mt-10 mb-5 gap-2">
             <Button
-              className="bg-blue-600 hover:bg-blue-800 text-white text-sm h-8 px-6 shadow-lg rounded-sm"
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-800 text-white text-lg  px-6 shadow-lg rounded-sm"
               onClick={() =>
                 toast("Plan Saved!", {
                   icon: <PiWarningCircleBold className="text-green" />,

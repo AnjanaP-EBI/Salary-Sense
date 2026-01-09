@@ -26,10 +26,10 @@ const chartConfig = {
 } satisfies ChartConfig
 
   return (
-    <div className="flex flex-col justify-between items-center w-full h-55 border border-gray-300 shadow rounded-xl">
-        <h1 className="pt-2 text-xs">Income and Expanses of last 6 month</h1>
-        <div className="h-auto w-4/5">
-      <ChartContainer config={chartConfig} className="pb-3">
+    <div className="flex flex-col bg-white justify-between items-center w-full h-[40%] border border-gray-300 dark:border-[#525252] shadow-lg rounded-xl">
+        <h1 className="pt-[2%] text-xl">Income and Expanses of last 6 month</h1>
+        <div className="h-full pt-[2%] w-4/5 ">
+      <ChartContainer config={chartConfig} className="pb-2">
         <BarChart data={chartData}>
           <defs>
           <linearGradient id="incomeBarGradient" x1="0" y1="0" x2="0" y2="1">
@@ -47,14 +47,15 @@ const chartConfig = {
             tickMargin={10}
             axisLine={false}
             tickFormatter={(value) => value.slice(0, 3)}
+            fontSize={14}
           />
           <ChartTooltip
             cursor={false}
             content={<ChartTooltipContent indicator="dashed" />}
           />
-          <Bar dataKey="Income" fill="url(#incomeBarGradient)" radius={3} barSize={10}/>
-          <Bar dataKey="Expanse" fill="url(#expanseBarGradient)" radius={3} barSize={10}/>
-          <Legend/>
+          <Bar dataKey="Income" fill="url(#incomeBarGradient)" radius={3} barSize={20}/>
+          <Bar dataKey="Expanse" fill="url(#expanseBarGradient)" radius={3} barSize={20}/>
+          <Legend wrapperStyle={{ fontSize: "15px"}} />
         </BarChart>
       </ChartContainer></div>
     </div>

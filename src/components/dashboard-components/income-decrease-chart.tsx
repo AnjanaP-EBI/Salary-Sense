@@ -29,14 +29,14 @@ const chartConfig = {
 } satisfies ChartConfig
 
     return (
-        <div className="flex flex-col items-center  w-full h-55 border border-gray-300 shadow rounded-xl gap-2">
-            <h1 className="text-xs pt-3">This Month Income decreasment</h1>
+        <div className="flex flex-col items-center bg-white w-full h-2/5 border border-gray-300 dark:border-[#525252] shadow-lg rounded-xl gap-2">
+            <h1 className="text-md font-medium pt-[3%] uppercase">This Month Income decreasment</h1>
             <ChartContainer config={chartConfig}
-              className="h-40 w-auto ">
+              className="h-[75%] w-[85%] flex items-center justify-center pt-[4%]">
                 <LineChart
                   accessibilityLayer
                   data={chartData}
-                  margin={{left:10,right:10,top:10}}>
+                  margin={{left:20,right:20,top:10}}>
                     <CartesianGrid vertical={true}
                     horizontal={false}/>
                     <XAxis
@@ -46,7 +46,7 @@ const chartConfig = {
                         axisLine={false}
                         tickMargin={8}
                         tickFormatter={(value) => value.slice(0,5)}
-                        tick={{ fontSize:8}}/>
+                        tick={{ fontSize:12}}/>
                         <ChartTooltip
                             cursor={true}
                             content={<ChartTooltipContent hideLabel/>}

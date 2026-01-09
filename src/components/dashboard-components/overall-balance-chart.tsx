@@ -1,3 +1,4 @@
+'use client'
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   ChartConfig,
@@ -30,13 +31,13 @@ export function OverallBalanceChart() {
   } satisfies ChartConfig;
 
   return (
-    <div className="flex flex-col items-center  w-full h-55 border border-gray-300 shadow rounded-xl gap-2">
-      <h1 className="text-xs pt-3">Overall Balance</h1>
-      <ChartContainer config={chartConfig} className="h-40 w-auto ">
+    <div className="flex flex-col items-center  w-full h-2/5 border bg-white border-gray-300 dark:border-[#525252] shadow-lg rounded-xl gap-2">
+      <h1 className="text-md font-medium uppercase pt-[3%]">Overall Balance</h1>
+      <ChartContainer config={chartConfig} className="h-[75%] w-[85%]">
         <LineChart
           accessibilityLayer
           data={chartData}
-          margin={{ left: 10, right: 10, top: 10 }}
+          margin={{ left: 20, right: 20, top: 10 }}
         >
           <CartesianGrid vertical={true} horizontal={false} />
           <XAxis
@@ -46,7 +47,7 @@ export function OverallBalanceChart() {
             axisLine={false}
             tickMargin={8}
             tickFormatter={(value) => value.slice(0,3)}
-            tick={{ fontSize:8 }}
+            tick={{ fontSize:15 }}
           />
           <ChartTooltip
             cursor={true}
