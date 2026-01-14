@@ -29,7 +29,7 @@ export default function SettingsPage() {
   const userEmail = "yourmail@gmail.com"; //fetch from user context or auth context
   const passwordPlaceholder = "password"; //fetch from user context or auth context
 
-  const [selectedCurrency, setSelectedCurrency] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState("$");
     const { setCurrency } = useApp();
     const currencies = [
       { code: "USD", symbol: "$ ", name: "United States Dollar" },

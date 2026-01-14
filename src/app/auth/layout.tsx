@@ -46,9 +46,9 @@ export default function RootLayout({
         <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
           
           
-            <main className="flex h-full w-full flex-col hover:text-black bg-white border  bg-whitelack sm:items-start darl:bg-black">
+            <main className="flex h-full w-full flex-col hover:text-black bg-white border sm:items-start dark:bg-black">
               
-            <header className="justify justify-between flex items-center w-full h-12 bg-[#0839CC] ">
+            <header className="justify justify-between flex items-center w-full h-12 bg-linear-to-r from-blue-900 to-blue-500  ">
               <div className="flex h-full items-center items-row">
                 
                 <div className="flex flex-row m-2 items-center text-white">

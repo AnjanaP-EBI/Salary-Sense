@@ -40,12 +40,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex h-full w-full items-center justify-center bg-zinc-50 font-sans">
+        <div className="flex h-full w-full items-center justify-center font-sans">
           
           
             <main className="flex h-screen w-screen flex-col bg-white rounded-xl border  bg-whitelack sm:items-start darl:bg-black">
               
-            <header data-tauri-drag-region className="justify justify-between flex items-center w-screen h-12 bg-[#0839CC] ">
+            <header data-tauri-drag-region className="justify justify-between flex items-center w-screen h-12 bg-linear-to-r from-blue-900 to-blue-500 border border-b shadow-lg ">
               <div className="flex h-full items-center items-row">
                 <div className="w-15 h-full hover:bg-[#002BAE] items-center flex justify-center "
                 onClick={() => {

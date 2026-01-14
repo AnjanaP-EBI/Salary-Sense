@@ -2,7 +2,7 @@
 
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { Input } from "../ui/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogHeader,
@@ -24,6 +24,9 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
+import { useApp } from "@/context/AppContext";
+import { formatNumber } from "@/lib/utils";
+import { parse } from "path";
 
 // Define types
 type Expense = {
@@ -57,8 +60,10 @@ export function MonthlyExpanses({
   const [expanseAmount, setExpanseAmount] = useState("");
   const [category, setCategory] = useState("");
 
+  const [doneExpensesTotal, setDoneExpensesTotal] = useState(0);
+
   const handleAddExpense = () => {
-    if (!expanseName || !expanseAmount) {
+    if (!expanseName || !expanseAmount || !category) {
       toast.error("Please fill in all required fields");
       return;
     }
@@ -87,17 +92,23 @@ export function MonthlyExpanses({
     0
   );
 
-  const setTotalExpenses = TotalMonthlyExpenses.toLocaleString();
+  const [totalExpenses, setTotalExpenses] = useState(0);
+  useEffect(() => {
+    const total = expenses.reduce((sum, expense) => sum + parseFloat(expense.AmountValue || "0"), 0);
+    setTotalExpenses(total);
+  }, [expenses]);
+
+  const {currency} = useApp();
 
   return (
-    <div className="w-full h-[75%] justify-between rounded-lg">
-      <div className="w-full h-[6%] pl-[2%] pr-[1%] items-center justify-between flex flex-row bg-gray-300 dark:bg-[#696969] dark:border-[#525252] rounded-t-md">
-        <h1 className="font-medium dark:text-white text-xl">
+    <div className="w-full h-[75%] justify-between border rounded-lg shadow-lg">
+      <div className="w-full h-[6%] pl-[2%] pr-[1%] items-center justify-between flex flex-row bg-blue-800 dark:bg-[#696969] dark:border-[#525252] rounded-t-md">
+        <h1 className="font-medium text-white text-xl">
           This month Expenses
         </h1>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-          <DialogTrigger className="px-[3%] text-xl font-medium dark:text-black py-[0.5%] rounded bg-white hover:bg-gray-100">
-            + Add New
+          <DialogTrigger className="px-[3%] text-xl font-medium text-black py-[0.5%] border border-white rounded bg-white shadow-lg hover:bg-gray-100">
+            + Add
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -179,8 +190,12 @@ export function MonthlyExpanses({
         </Dialog>
       </div>
 
-      <div className="border  bg-white h-[88%]">
-        <div className="w-full h-[90%] overflow-y-auto py-[1%]">
+      <div className="  bg-[#fdfcfd] py-[1%] h-[88%]">
+        <div className="w-full h-full overflow-y-auto py-[3%]">
+          {/* <div className=" flex flex-row w-full h-[5%] px-[2%] border-b  border-gray-300 text-lg font-semibold">
+            <div className="w-2/3 pl-[6%] pb-1">Expanse</div>
+            <div className="w-1/3 justify-end flex pb-1">Amount</div>
+          </div> */}
           <ScrollArea>
             {expenses.map((expense) => (
               <div
@@ -322,7 +337,7 @@ export function MonthlyExpanses({
                   </ContextMenuContent>
                 </ContextMenu>
                 <div className="w-1/3 justify-end flex pr-3">
-                  {expense.AmountValue}
+                  {currency}{formatNumber(expense.AmountValue)}
                 </div>
               </div>
             ))}
@@ -330,12 +345,14 @@ export function MonthlyExpanses({
         </div>
       </div>
 
-      <div className="h-[6%] bg-gray-300 dark:bg-[#696969] rounded-b-lg flex flex-row justify-between items-center">
-        <h1 className="pl-3 dark:text-white text-xl font-medium">
+      <div className="h-[6%] bg-blue-900 dark:bg-[#696969] rounded-b-lg flex flex-row justify-between items-center">
+        <h1 className="pl-3 text-white text-xl font-medium">
           Total Expenses
         </h1>
-        <h2 className="pr-3 dark:text-white text-xl font-medium">
-          {TotalMonthlyExpenses}
+        <h2 className="pr-3 text-white text-xl font-medium">
+          {currency}{formatNumber(TotalMonthlyExpenses)}
+          {/* {setTotalExpenses} */}
+
         </h2>
       </div>
     </div>

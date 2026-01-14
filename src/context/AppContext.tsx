@@ -23,6 +23,11 @@ type AppContextType = {
 
   doneExpensesTotal: number;
   setDoneExpensesTotal: (value:number) => void;
+
+  currentTotalBalance: number;
+  setCurrentTotalBalance: (value:number) => void;
+
+
 };
 
 const AppContext = createContext<AppContextType | null>(null);
@@ -30,12 +35,13 @@ const AppContext = createContext<AppContextType | null>(null);
 export const AppProvider = ({ children }: { children: ReactNode }) => {
 
 const [theme, setTheme] = useState('light');
-const [currency, setCurrency] = useState('USD');
+const [currency, setCurrency] = useState('$');
 const [language, setLanguage] = useState('en');
-const [savingPercentage, setSavingPercentage] = useState(0);
+const [savingPercentage, setSavingPercentage] = useState(5);
 const [spendableAmount, setSpendableAmount] = useState(0);
 const [thismonthtotalIncome, setThismonthtotalIncome] = useState(0);
 const [doneExpensesTotal, setDoneExpensesTotal] = useState(0);
+const [currentTotalBalance, setCurrentTotalBalance] = useState(500000000);
 
   return (
     <AppContext.Provider value={{
@@ -52,7 +58,9 @@ const [doneExpensesTotal, setDoneExpensesTotal] = useState(0);
       thismonthtotalIncome,
       setThismonthtotalIncome,
       doneExpensesTotal,
-      setDoneExpensesTotal
+      setDoneExpensesTotal,
+      currentTotalBalance,
+      setCurrentTotalBalance
     }}>
       {children}    
     </AppContext.Provider>

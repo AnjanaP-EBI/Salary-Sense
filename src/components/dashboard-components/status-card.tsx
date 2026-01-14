@@ -18,9 +18,11 @@ interface actualSavingPercentageProps {
     intendSaving: number,
 }
 
-export function StatusCard( {thisMonthTotalExpanses,intendAmount,thisMonthTotalBalance,lastMonthTotalBalance,actualSavingPercentage}:{thisMonthTotalExpanses:number,intendAmount:number,thisMonthTotalBalance:number,lastMonthTotalBalance:number,actualSavingPercentage:number}) {
+export function StatusCard( {thisMonthTotalExpanses,thisMonthTotalBalance,lastMonthTotalBalance,actualSavingPercentage}:{thisMonthTotalExpanses:number,thisMonthTotalBalance:number,lastMonthTotalBalance:number,actualSavingPercentage:number}) {
     
-    const {savingPercentage} = useApp();
+    const {savingPercentage, thismonthtotalIncome} = useApp();
+
+    const intendAmount = thismonthtotalIncome * ((100 - savingPercentage) / 100);
 
     // ----------------------for espanseStatus--------------------------
     const expanseStatus = // Overflowing | on Edge | Fine

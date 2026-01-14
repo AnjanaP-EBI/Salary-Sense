@@ -26,8 +26,8 @@ const chartConfig = {
 } satisfies ChartConfig
 
   return (
-    <div className="flex flex-col bg-white justify-between items-center w-full h-[40%] border border-gray-300 dark:border-[#525252] shadow-lg rounded-xl">
-        <h1 className="pt-[2%] text-xl">Income and Expanses of last 6 month</h1>
+    <div className="flex flex-col bg-[#fdfcfd] justify-between items-center w-full h-[40%] border border-gray-300 dark:border-[#525252] shadow-lg rounded-xl">
+        <h1 className="pt-[2%] text-xl font-semibold">Income and Expanses of last 6 month</h1>
         <div className="h-full pt-[2%] w-4/5 ">
       <ChartContainer config={chartConfig} className="pb-2">
         <BarChart data={chartData}>

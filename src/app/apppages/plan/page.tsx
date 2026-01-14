@@ -45,6 +45,8 @@ type ExpanceEntry = {
 };
 
 export default function PlanPage() {
+
+  
   const [openIncome, setOpenIncome] = useState(false);
   const [incomeDate, setIncomeDate] = useState<Date | undefined>(undefined);
   const [incomeEntries, setIncomeEntries] = useState<IncomeEntry[]>([
@@ -58,22 +60,10 @@ export default function PlanPage() {
   ]);
   const [selectStorage, setSelectStorage] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState("");
-  const { setCurrency,setSavingPercentage } = useApp();
-  const currencies = [
-    { code: "USD", symbol: "$ ", name: "United States Dollar" },
-    { code: "EUR", symbol: "€ ", name: "Euro" },
-    { code: "GBP", symbol: "£ ", name: "British Pound" },
-    { code: "JPY", symbol: "¥ ", name: "Japanese Yen" },
-    { code: "LKR", symbol: "Rs.", name: "SriLankan Rupees" },
-    { code: "AUD", symbol: "$ ", name: "Australian Dollar" },
-    { code: "CAD", symbol: "$ ", name: "Canadian Dollar" },
-    { code: "CHF", symbol: "Fr. ", name: "Swiss Franc" },
-    { code: "CNY", symbol: "¥ ", name: "Chinese Yuan" },
-    { code: "INR", symbol: "₹ ", name: "Indian Rupee" },
-    { code: "BRL", symbol: "R$ ", name: "Brazilian Real" },
-  ];
+  const { setCurrency,setSavingPercentage,setCurrentTotalBalance } = useApp();
 
-  const [intendSavingPercentage, setIntendSavingPercentage] = useState(0);
+  const [totalBalance, setTotalBalance] = useState(0);
+  const [intendSavingPercentage, setIntendSavingPercentage] = useState(5);
 
   const handleAddExpance = () => {
     //logic to add expance field
@@ -142,7 +132,9 @@ export default function PlanPage() {
             <div className="flex flex-row w-full gap-5 items-center text-xs">
               <div className="w-1/5 text-lg">Current Total Balance</div>
               <div className="w-1/4">
-                <Input className="h-12" />
+                <Input className="h-12" 
+                 value={totalBalance}
+                 onChange={(e) => setTotalBalance(Number(e.target.value))}/>
               </div>
             </div>
             {/* monthly income */}
@@ -337,6 +329,7 @@ export default function PlanPage() {
 
               setCurrency(selectedCurrency);
               setSavingPercentage(intendSavingPercentage);
+              setCurrentTotalBalance(totalBalance);
               toast.success("Plan saved successfully!");
               }}
             
