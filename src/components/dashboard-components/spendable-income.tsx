@@ -35,7 +35,7 @@ export function SpendableIncome({
   const spendableAmount = spendableBudget - doneExpenses;
   // Calculate the percentage remaining (for liquid gauge)
   const percentageRemaining = spendableBudget > 0 
-    ? Math.round((spendableAmount / spendableBudget * 100)) 
+    ? ((spendableAmount / spendableBudget * 100)) 
     : 0;
   
   if (!mounted) {
@@ -104,9 +104,9 @@ export function SpendableIncome({
               width: number;
               textSize: number;
             }) => {
-              const value = Math.round(props.value);
+              const value = (props.value).toFixed(2);
               const radius = Math.min(props.height / 2, props.width / 2);
-              const textPixels = (props.textSize * radius) / 2;
+              const textPixels = (props.textSize * radius) / 2.3;
               const valueStyle = { fontSize: textPixels, fill: valueTextColor };
               const percentStyle = { 
                 fontSize: textPixels * 0.6, 

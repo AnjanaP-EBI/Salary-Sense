@@ -24,9 +24,11 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
+
 import { useApp } from "@/context/AppContext";
 import { formatNumber } from "@/lib/utils";
 import { parse } from "path";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "../ui/hover-card";
 
 // Define types
 type Expense = {
@@ -51,7 +53,7 @@ export function MonthlyExpanses({
   onToggleExpense,
   onDeleteExpense,
 }: MonthlyExpansesProps) {
-  const [date, setDate] = useState<Date | undefined>(undefined);
+  const [newDate, setNewDate] = useState<Date | undefined>(undefined);
   const [open, setOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -71,14 +73,14 @@ export function MonthlyExpanses({
     onAddExpense({
       Name: expanseName,
       AmountValue: expanseAmount,
-      date: date,
+      date: newDate,
       category: category,
     });
 
     // Reset form
     setExpanseName("");
     setExpanseAmount("");
-    setDate(undefined);
+    setNewDate(undefined);
     setCategory("");
     setDialogOpen(false);
 
@@ -138,15 +140,15 @@ export function MonthlyExpanses({
                         className="w-full justify-between text-gray-500 font-normal"
                         id="date"
                       >
-                        {date ? date.toLocaleDateString() : "Select date"}
+                        {newDate ? newDate.toLocaleDateString() : "Select date"}
                         <BsCalendarDateFill />
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
                       <Calendar
                         mode="single"
-                        selected={date}
-                        onSelect={setDate}
+                        selected={newDate}
+                        onSelect={setNewDate}
                       />
                     </PopoverContent>
                   </Popover>
@@ -168,6 +170,18 @@ export function MonthlyExpanses({
                   <div className="text-md gap-2 flex flex-row items-center">
                     <RadioGroupItem value="Transport" id="transport" />
                     <label htmlFor="transport">Transport</label>
+                  </div>
+                  <div className="text-md gap-2 flex flex-row items-center">
+                    <RadioGroupItem value="Utility" id="utility" />
+                    <label htmlFor="utility">Utility</label>
+                  </div>
+                  <div className="text-md gap-2 flex flex-row items-center">
+                    <RadioGroupItem value="Entertainment" id="entertainment" />
+                    <label htmlFor="entertainment">Entertainment</label>
+                  </div>
+                  <div className="text-md gap-2 flex flex-row items-center">
+                    <RadioGroupItem value="Shopping" id="shopping" />
+                    <label htmlFor="shopping">Shopping</label>
                   </div>
                   <div className="text-md gap-2 flex flex-row items-center">
                     <RadioGroupItem value="Other" id="other" />
@@ -211,9 +225,18 @@ export function MonthlyExpanses({
                 </div>
                 <ContextMenu>
                   <div className="w-2/3">
-                    <ContextMenuTrigger>
-                      <div className="w-full pl-3">{expense.Name}</div>
+                  <HoverCard>
+                    <ContextMenuTrigger><HoverCardTrigger>
+                      <div className="w-full pl-3">{expense.Name}</div></HoverCardTrigger>
                     </ContextMenuTrigger>
+                    <HoverCardContent className="w-auto p-3">
+                      <div className="flex flex-col gap-2">
+                        <p className="font-semibold text-lg">Details</p>
+                        <p>Date: {expense.date ? expense.date.toLocaleDateString() : "N/A"}</p>
+                        <p>Category: {expense.category || "N/A"}</p>
+                      </div>
+                    </HoverCardContent>
+                    </HoverCard>
                   </div>
 
                   <ContextMenuContent>
@@ -257,8 +280,8 @@ export function MonthlyExpanses({
                                         className="w-full justify-between text-gray-500 font-normal"
                                         id="date"
                                       >
-                                        {date
-                                          ? date.toLocaleDateString()
+                                        {newDate
+                                          ? newDate.toLocaleDateString()
                                           : "Select date"}
                                         <BsCalendarDateFill />
                                       </Button>
@@ -269,8 +292,8 @@ export function MonthlyExpanses({
                                     >
                                       <Calendar
                                         mode="single"
-                                        selected={date}
-                                        onSelect={setDate}
+                                        selected={newDate}
+                                        onSelect={setNewDate}
                                       />
                                     </PopoverContent>
                                   </Popover>

@@ -16,6 +16,7 @@ import { TotalBalance } from "@/components/dashboard-components/total-balance";
 import { IncomeDecreaseChart } from "@/components/dashboard-components/income-decrease-chart";
 import { OverallBalanceChart } from "@/components/dashboard-components/overall-balance-chart";
 import { LastIncomeBalance } from "@/components/dashboard-components/last-income-balance";
+import { date } from "zod";
 
 
 // Define the expense type
@@ -31,21 +32,19 @@ type Expense = {
 export default function DashboardPage() {
   // Shared state for expenses
   const [expenses, setExpenses] = useState<Expense[]>([
-    { id: 1, Name: "Home loan", AmountValue: "130000", done: false },
-    { id: 2, Name: "Vehical Finance", AmountValue: "400000", done: false },
-    { id: 3, Name: "Vehical 2 Finance", AmountValue: "1100000", done: false },
-    { id: 4, Name: "Electricity bill", AmountValue: "6600", done: false },
-    { id: 5, Name: "Cloths", AmountValue: "21000", done: false },
-    { id: 6, Name: "Dinner out", AmountValue: "8000", done: false },
-    { id: 7, Name: "Cinama", AmountValue: "7000", done: false },
-    { id: 8, Name: "New shop opening", AmountValue: "120000", done: false },
-    { id: 9, Name: "Air tickets", AmountValue: "750000", done: false },
-    { id: 10, Name: "jewelary", AmountValue: "2100", done: false },
-    { id: 12, Name: "Bike service", AmountValue: "18000", done: false },
-    { id: 14, Name: "Internet bill", AmountValue: "15000", done: false },
-    { id: 15, Name: "telephone bill", AmountValue: "2100", done: false },
-    { id: 16, Name: "Mobile bills", AmountValue: "2000", done: false },
-    { id: 18, Name: "Decor", AmountValue: "50000", done: false },
+    { id: 1, Name: "Home loan", AmountValue: "130000", date: new Date("2025-01-15"), category: "Housing", done: false },
+    { id: 2, Name: "Vehical Finance", AmountValue: "400000", date: new Date("2025-01-16"), category: "Housing", done: false },
+    { id: 3, Name: "Vehical 2 Finance", AmountValue: "1100000", date: new Date("2025-01-17"), category: "Housing", done: false },
+    { id: 4, Name: "Electricity bill", AmountValue: "6600", date: new Date("2025-01-18"), category: "Utilities", done: false },
+    { id: 5, Name: "Cloths", AmountValue: "21000", date: new Date("2025-01-19"), category: "Clothing", done: false },
+    { id: 6, Name: "Dinner out", AmountValue: "8000", date: new Date("2025-01-20"), category:"Food & Dining" ,done:false},
+    { id: 7, Name:"Cinama" ,AmountValue:"7000" ,date:new Date("2025-01-21"),category:"Entertainment" ,done:false},
+    { id : 8 ,Name:"New shop opening" ,AmountValue:"12000" ,date:new Date("2025-01-22") ,category:"Shopping" ,done:false},
+    { id : 9 ,Name:"Air tickets" ,AmountValue:"759999" ,date:new Date("2025-01-23") ,category:"Travel & Transportation" ,done:false},
+    { id : 14 ,Name:"Internet bill" ,AmountValue:"15" ,date:new Date("2025-01-26") ,category:"Utilities",done:false},
+    { id: 15, Name: "telephone bill", AmountValue: "2100", date: new Date("2025-01-27"),category:"Utilities", done: false },
+    { id: 16, Name: "Mobile bills", AmountValue: "2000", date: new Date("2025-01-28"),category:"Utilities", done: false },
+    { id: 18, Name: "Decor", AmountValue: "50000", date:new Date("2025-01-31"),category:"Utilities", done:false},
   ]);
 
   const TotalMonthlyExpenses = expenses.reduce(
@@ -62,7 +61,7 @@ export default function DashboardPage() {
     .filter(exp => exp.done)
     .reduce((sum, exp) => sum + parseFloat(exp.AmountValue || "0"), 0);
   
-  
+  const doneExpenses = expenses.filter(exp => exp.done); 
   // Function to add new expense
   const addExpense = (newExpense: Omit<Expense, 'id' | 'done'>) => {
     setExpenses(prev => [
@@ -117,6 +116,7 @@ export default function DashboardPage() {
                      thisMonthTotalExpanses={TotalMonthlyExpenses}
                      thisMonthTotalBalance={100000}
                      lastMonthTotalBalance={100000}
+                     thismonthtotalIncome={thismonthtotalIncome}
                      />
           </div>
 
@@ -125,7 +125,8 @@ export default function DashboardPage() {
                  <LastIncomeBalance
                   thismonthtotalIncome={thismonthtotalIncome}
                   doneExpensesTotal={doneExpensesTotal}/>
-                 <IncomeDecreaseChart/>
+                 <IncomeDecreaseChart
+                 />
                  <OverallBalanceChart/>                 
           </div>
         </div>

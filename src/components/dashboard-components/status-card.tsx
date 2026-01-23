@@ -18,11 +18,13 @@ interface actualSavingPercentageProps {
     intendSaving: number,
 }
 
-export function StatusCard( {thisMonthTotalExpanses,thisMonthTotalBalance,lastMonthTotalBalance,actualSavingPercentage}:{thisMonthTotalExpanses:number,thisMonthTotalBalance:number,lastMonthTotalBalance:number,actualSavingPercentage:number}) {
+export function StatusCard( {thisMonthTotalExpanses,thisMonthTotalBalance,lastMonthTotalBalance,thismonthtotalIncome}:{thisMonthTotalExpanses:number,thisMonthTotalBalance:number,lastMonthTotalBalance:number,thismonthtotalIncome:number}) {
     
-    const {savingPercentage, thismonthtotalIncome} = useApp();
+    const {savingPercentage} = useApp();
 
     const intendAmount = thismonthtotalIncome * ((100 - savingPercentage) / 100);
+
+    const actualSavingPercentage = ((thismonthtotalIncome - thisMonthTotalExpanses) / thismonthtotalIncome) * 100;
 
     // ----------------------for espanseStatus--------------------------
     const expanseStatus = // Overflowing | on Edge | Fine
@@ -46,7 +48,7 @@ export function StatusCard( {thisMonthTotalExpanses,thisMonthTotalBalance,lastMo
           currentSavingStatus === "Nutral" ? "#FF8400":
           "#4DA813";
 
-    //---------------------for actual Saving percentage-------------------
+    // // ---------------------for actual Saving percentage-------------------
     // const actualSavingPercentageStatus =
     //       actualSavingPercentage < intendSaving ? "FF0000":
     //       actualSavingPercentage === intendSaving ? "FF8400":
@@ -79,7 +81,7 @@ export function StatusCard( {thisMonthTotalExpanses,thisMonthTotalBalance,lastMo
                 <p style={{color:expanseStatusColor, fontWeight:"bold"}}>{expanseStatus}</p>
                 <p style={{color:currentSavingStatusColor, fontWeight:"bold"}}>{currentSavingStatus}</p>
                 <p>{savingPercentage}%</p>
-                <p style={{color:actualSavingPercentageStatusColor, fontWeight:"bold" }}>{actualSavingPercentage}%</p>
+                <p style={{color:actualSavingPercentageStatusColor, fontWeight:"bold" }}>{Number(actualSavingPercentage).toFixed(2)}%</p>
                 </div>    
             </div>
 

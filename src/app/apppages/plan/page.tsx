@@ -23,9 +23,8 @@ import { Button } from "@/components/ui/button";
 import { BsCalendarDateFill } from "react-icons/bs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { toast } from "sonner";
-import { PiWarningCircleBold } from "react-icons/pi";
 import { useApp } from "@/context/AppContext";
-import { set } from "date-fns";
+
 
 
 type IncomeEntry = {
