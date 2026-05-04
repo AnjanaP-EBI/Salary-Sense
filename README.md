@@ -2,11 +2,15 @@
 
 Salary Sense is an under-development cross-platform money manager with an AI-based financial advising system built with:
 
+```text
  ______________________________  ______________________________  ______________________________
 |          **FRONTEND**         |          **BACKEND**          |          **WRAPPER**         |
  ------------------------------- ------------------------------- ------------------------------
+|                               |                               |                              |
 |            NextJs             |             .Net              |          Tauri 2.0           |
+|                               |                               |                              |
  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+```
 
 ## Core Features
 1. **Expenses Tracking** - Log and categorize your spendings 
