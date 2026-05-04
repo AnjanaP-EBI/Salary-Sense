@@ -5,9 +5,7 @@ Salary Sense is an under-development cross-platform money manager with an AI-bas
  ______________________________  ______________________________  ______________________________
 |          **FRONTEND**         |          **BACKEND**          |          **WRAPPER**         |
  ------------------------------- ------------------------------- ------------------------------
-|                               |                               |                              |
 |            NextJs             |             .Net              |          Tauri 2.0           |
-|                               |                               |                              |
  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 ## Core Features
@@ -66,6 +64,4 @@ Have a suggestion or want to collaborate? Feel free to reach out
 
 
 ## During this Project 
-trees were cut down : 0
-wild life harmed : 0
-human lives got tired : 1
+trees were cut down : 0 | wild life harmed : 0 | human lives got tired : 1
