@@ -24,22 +24,43 @@ Salary Sense is an under-development cross-platform money manager with an AI-bas
 1. **AI Financial Advice** - Based on your current stats, the AI companion system will advise you on how to manage your money wisely.
 2. **Windows Widget** - A desktop widget for a quick financial summary.
 
-## Initial UI Designed with Figma
+----------------------------------
 
-<img width="1440" height="1024" alt="Sign in" src="https://github.com/user-attachments/assets/f3067635-979e-4419-857d-6ff81d10bf22" />
-<img width="1440" height="1024" alt="Dashboard" src="https://github.com/user-attachments/assets/c780e40a-9cc8-4497-8f63-84da0984bef9" />
-<img width="1440" height="1024" alt="Plan" src="https://github.com/user-attachments/assets/b0991e0f-e63e-466a-8730-e8a88cc51e3f" />
-<img width="1440" height="1024" alt="Profile" src="https://github.com/user-attachments/assets/24a57763-6834-4a4b-aea6-af869743314d" />
-<img width="1097" height="782" alt="Figma Layout 1" src="https://github.com/user-attachments/assets/5232eb89-4755-41af-9f16-b35971142553" />
-<img width="1109" height="789" alt="Figma Layout 2" src="https://github.com/user-attachments/assets/a1cab5eb-8d24-4eef-a582-7871c9c24afe" />
+## Initial UI Designed with Figma
+<html>
+ <tr>
+<td><img width="1440" height="512" alt="Sign in" src="https://github.com/user-attachments/assets/f3067635-979e-4419-857d-6ff81d10bf22" /></td>
+<td><img width="1440" height="512" alt="Dashboard" src="https://github.com/user-attachments/assets/c780e40a-9cc8-4497-8f63-84da0984bef9" /></td>
+ </tr>
+ <tr>
+  <td><img width="1440" height="512" alt="Plan" src="https://github.com/user-attachments/assets/b0991e0f-e63e-466a-8730-e8a88cc51e3f" /></td>
+ <td><img width="1440" height="512" alt="Profile" src="https://github.com/user-attachments/assets/24a57763-6834-4a4b-aea6-af869743314d" /></td>
+ </tr>
+ <tr>
+<td><img width="1097" height="512" alt="Figma Layout 1" src="https://github.com/user-attachments/assets/5232eb89-4755-41af-9f16-b35971142553" /></td>
+<td><img width="1109" height="789" alt="Figma Layout 2" src="https://github.com/user-attachments/assets/a1cab5eb-8d24-4eef-a582-7871c9c24afe" /></td>
+ </tr>
+</html>
+
+----------------------------------
 
 ## Current UI in Development
 
-<img width="1919" height="1079" alt="Dev Screenshot 1" src="https://github.com/user-attachments/assets/fb033a5f-fe89-4613-9bd6-ce153c9d782c" />
-<img width="1915" height="1078" alt="Dev Screenshot 2" src="https://github.com/user-attachments/assets/008c4544-1212-414d-bea6-4a18586ad471" />
-<img width="1919" height="1079" alt="Dev Screenshot 3" src="https://github.com/user-attachments/assets/c17f13fe-abdb-424e-a9e9-5b71fe05ff8a" />
-<img width="1919" height="1079" alt="Dev Screenshot 4" src="https://github.com/user-attachments/assets/45796570-9361-417f-a4ea-1cc8fba911d9" />
-<img width="1916" height="1079" alt="Dev Screenshot 5" src="https://github.com/user-attachments/assets/ee35ef40-2f57-4950-bf97-7e8e18f7ab3b" />
+<html>
+ <tr>
+<td><img width="1919" height="1079" alt="Dev Screenshot 1" src="https://github.com/user-attachments/assets/fb033a5f-fe89-4613-9bd6-ce153c9d782c" /></td>
+<td><img width="1915" height="1078" alt="Dev Screenshot 2" src="https://github.com/user-attachments/assets/008c4544-1212-414d-bea6-4a18586ad471" /></td>
+ </tr>
+ <tr>
+<td><img width="1919" height="1079" alt="Dev Screenshot 3" src="https://github.com/user-attachments/assets/c17f13fe-abdb-424e-a9e9-5b71fe05ff8a" /></td>
+<td><img width="1919" height="1079" alt="Dev Screenshot 4" src="https://github.com/user-attachments/assets/45796570-9361-417f-a4ea-1cc8fba911d9" /></td>
+ </tr>
+ <tr>
+<td><img width="1916" height="1079" alt="Dev Screenshot 5" src="https://github.com/user-attachments/assets/ee35ef40-2f57-4950-bf97-7e8e18f7ab3b" /></td>
+ </tr>
+</html>
+
+------------------------------------
 
 ## Getting Started
 
@@ -49,7 +70,7 @@ Since this project is currently in development, you can run it locally:
 * **Install Dependencies**: `npm install`
 * **Run Dev Server**: `npm run tauri dev` (This will open the application in a separate window as a native desktop app).
 
----------------------------------------------------
+---------------------------------------
 ## Current Issues
 
 ### Issue No 1
@@ -59,7 +80,7 @@ Since this project is currently in development, you can run it locally:
 *To ensure that you won't face this issue because I love you more, Salary Sense is currently configured to launch in full screen mode only.This bypasses the window shrinkage calculations.
 
 I am actively monitoring Tauri time to time for a permanant fix to restore the stability of windowed mode
-----------------------------------------------------
+----------------------------------------
 
 
 ## Contact & Suggestions
