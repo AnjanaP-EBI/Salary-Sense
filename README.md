@@ -79,7 +79,8 @@ Since this project is currently in development, you can run it locally:
 ### my solution
 *To ensure that you won't face this issue because I love you more, Salary Sense is currently configured to launch in full screen mode only.This bypasses the window shrinkage calculations.
 
-I am actively monitoring Tauri time to time for a permanant fix to restore the stability of windowed mode
+<html> <p text color = "red">I am actively monitoring Tauri time to time for a permanant fix to restore the stability of windowed mode </p></html>
+
 ----------------------------------------
 
 
