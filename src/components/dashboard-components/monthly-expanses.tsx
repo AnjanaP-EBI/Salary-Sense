@@ -109,7 +109,7 @@ export function MonthlyExpanses({
           This month Expenses
         </h1>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-          <DialogTrigger className="px-[3%] text-xl font-medium text-black py-[0.5%] border border-white rounded bg-white shadow-lg hover:bg-gray-100">
+          <DialogTrigger className="px-[3%] text-sm font-medium text-black mt-1 mb-1 py-[0.5%] border border-white rounded bg-white shadow-lg hover:bg-gray-100">
             + Add
           </DialogTrigger>
           <DialogContent>

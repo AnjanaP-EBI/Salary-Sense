@@ -8,7 +8,7 @@ export function TotalBalance() {
     
     const { currency, currentTotalBalance} = useApp();
     return(
-        <div className="flex flex-row items-center justify-center bg-linear-to-l from-blue-400 to-blue-700 w-full h-20 border  border-gray-300 dark:border-[#525252] shadow  rounded-xl">
+        <div className="flex flex-row items-center justify-center bg-gray-600 w-full h-20 border  border-gray-300 dark:border-[#525252] shadow  rounded-xl">
             <div className=" px-5 text-md font-medium text-white border-r-2 border-white dark:border-[#c4c4c4]">Currunt Total Balance</div>
             
             <div className="w-2/3 flex flex-row items-baseline-last justify-end px-5">

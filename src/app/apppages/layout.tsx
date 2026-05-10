@@ -59,7 +59,7 @@ export default function RootLayout({
                   <AiOutlineMenu size={20} color="white" />
                 </div>
                 <div className="flex flex-row m-2 items-center text-white">
-                  <div className="font-semibold">Salary Sence</div>
+                  <div className="font-semibold">Salary Sense</div>
                   <div>-Your personal income planner</div>
                 </div>
               </div>

@@ -16,7 +16,7 @@ export function LastIncomeBalance ({doneExpensesTotal, thismonthtotalIncome}:Las
     const { currency } = useApp();
 
     return(
-        <div className="flex flex-row items-center bg-linear-to-l from-blue-400 to-blue-700  w-full h-20 border border-gray-300 dark:border-[#525252] shadow rounded-xl">
+        <div className="flex flex-row items-center bg-gray-600  w-full h-20 border border-gray-300 dark:border-[#525252] shadow rounded-xl">
             <div className="w-1/2 pl-5 text-md font-medium border-r-2 text-white border-white dark:border-[#c4c4c4]">Balance of last Income</div>
             <div className="w-full flex flex-row items-baseline-last justify-end px-5">
             <h1 className="text-xl text-white font-semibold">{currency}</h1>

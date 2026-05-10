@@ -106,7 +106,7 @@ export default function SettingsPage() {
                   <SelectContent className="bg-white dark:bg-gray-700 rounded-lg w-full py-3 gap-2 shadow-lg border items-center text-lg ">
                     <SelectGroup>
                       {currencies.map((currency) => (
-                        <SelectItem key={currency.code} value={currency.symbol} className="text-lg">
+                        <SelectItem key={currency.code} value={currency.symbol}  className="text-lg">
                           {currency.code} - {currency.name}
                         </SelectItem>
                       ))}
@@ -150,10 +150,11 @@ export default function SettingsPage() {
           <Button
             className="bg-blue-600 hover:bg-blue-800 text-white text-sm  shadow-lg rounded-sm"
             size="lg"
-            onClick={() =>
+            onClick={() => {
 
-              setCurrency(selectedCurrency)
-              }
+              setCurrency(selectedCurrency);
+              toast.success("Settings saved succesfully") 
+              }}
             
           >
             Save
