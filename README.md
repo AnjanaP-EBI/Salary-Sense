@@ -77,10 +77,10 @@ Since this project is currently in development, you can run it locally:
 * Multi-Monitor window shrinking - Due to a upstream bug in Tauri window handling, moving the application between monitors with different DPI scalings causes the window to shrink and the content inside stretch. This scenario only happens when the application window given a fixed size and having multiple monitors with different DPI scalings 
   
 ### my solution
-*To ensure that you won't face this issue because I love you more, Salary Sense is currently configured to launch in full screen mode only.This bypasses the window shrinkage calculations.
+*To ensure that you won't face this issue, Salary Sense is currently configured to launch in full screen mode only.This bypasses the window shrinkage calculations.
 
 
-**I am actively monitoring Tauri time to time for a permanant fix to restore the stability of windowed mode**
+**I am actively monitoring Tauri time to time for a permanent fix to restore the stability of windowed mode**
 
 ----------------------------------------
 
@@ -91,4 +91,4 @@ Have a suggestion or want to collaborate? Feel free to reach out
 
 
 ## During this Project 
-trees were cut down : 0 | wild life harmed : 0 | human lives got tired : 1
+Trees were cut down : 0 | Wildlife harmed : 0 | Human lives got tired : 1
