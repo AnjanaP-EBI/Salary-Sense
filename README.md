@@ -71,13 +71,13 @@ Since this project is currently in development, you can run it locally:
 * **Run Dev Server**: `npm run tauri dev` (This will open the application in a separate window as a native desktop app).
 
 ---------------------------------------
-## Current Issues
+## Bugs and Solutions
 
-### Issue No 1
-* Multi-Monitor window shrinking - Due to a upstream bug in Tauri window handling, moving the application between monitors with different DPI scalings causes the window to shrink and the content inside stretch. This scenario only happens when the application window given a fixed size and having multiple monitors with different DPI scalings 
+### Bug
+* Multi-Monitor window shrinking - Due to an upstream bug in Tauri window handling, moving the application between monitors with different DPI scalings causes the window to shrink and the content inside stretch. This scenario only happens when the application window given a fixed size and having multiple monitors with different DPI scalings 
   
 ### my solution
-*To ensure that you won't face this issue, Salary Sense is currently configured to launch in full screen mode only.This bypasses the window shrinkage calculations.
+* To prevent users from hitting this bug, Salary Sense is currently configured to launch in full-screen mode only. This bypasses the window shrinkage calculations.
 
 
 **I am actively monitoring Tauri time to time for a permanent fix to restore the stability of windowed mode**
