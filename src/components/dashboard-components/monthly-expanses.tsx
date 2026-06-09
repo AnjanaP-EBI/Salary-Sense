@@ -105,7 +105,7 @@ export function MonthlyExpanses({
   return (
     <div className="w-full h-[75%] justify-between border rounded-lg shadow-lg">
       <div className="w-full h-[6%] pl-[2%] pr-[1%] items-center justify-between flex flex-row bg-blue-800 dark:bg-[#696969] dark:border-[#525252] rounded-t-md">
-        <h1 className="font-medium text-white text-xl">
+        <h1 className="font-medium text-white text-md">
           This month Expenses
         </h1>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
@@ -214,13 +214,13 @@ export function MonthlyExpanses({
             {expenses.map((expense) => (
               <div
                 key={expense.id}
-                className="flex flex-row justify-between items-center text-xl pt-[1%] "
+                className="flex flex-row justify-between items-center text-sm pt-[1%] "
               >
-                <div className="p-[1.5%] flex flex-row gap-[1%]">
+                <div className="p-[1%] flex flex-row gap-[1%]">
                   {expense.done ? (
-                    <FaCircleCheck size="20px" color="green" />
+                    <FaCircleCheck size="15px" color="green" />
                   ) : (
-                    <FaCircleCheck size="20px" color="#d3d3d3" />
+                    <FaCircleCheck size="15px" color="#d3d3d3" />
                   )}
                 </div>
                 <ContextMenu>
@@ -369,10 +369,10 @@ export function MonthlyExpanses({
       </div>
 
       <div className="h-[6%] bg-blue-900 dark:bg-[#696969] rounded-b-lg flex flex-row justify-between items-center">
-        <h1 className="pl-3 text-white text-xl font-medium">
+        <h1 className="pl-3 text-white text-md font-medium">
           Total Expenses
         </h1>
-        <h2 className="pr-3 text-white text-xl font-medium">
+        <h2 className="pr-3 text-white text-md font-medium">
           {currency}{formatNumber(TotalMonthlyExpenses)}
           {/* {setTotalExpenses} */}
 

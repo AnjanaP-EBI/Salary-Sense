@@ -9,6 +9,8 @@ import { useTheme } from "next-themes";
 import LiquidFillGauge from "react-liquid-gauge";
 import { useApp } from "@/context/AppContext";
 import { formatNumber } from "@/lib/utils";
+import Image from "next/image";
+
 
 interface SpendableIncomeProps {
   
@@ -75,9 +77,14 @@ export function SpendableIncome({
   const chartConfig = {};
 
   return (
-    <div className="flex flex-row items-center justify-between gap-[3%] h-[25%] bg-linear-to-b from-blue-400 to-blue-800 dark:border-[#525252] rounded-lg border-gray-300 ">
-      
-      <div className="flex flex-col align-center items-center justify-between w-3/5">
+    <div className=" flex flex-row items-center justify-between gap-[3%] h-[25%] bg-blue-800 dark:border-[#525252] rounded-lg border-gray-300 ">
+      {/* <Image
+        src="/comp_bg/2.jpg"
+        fill
+        alt=""
+        className="object-cover -z-10"
+        />  */}
+             <div className="flex flex-col align-center items-center justify-between w-3/5">
         <div className="h-1/3 text-xl text-white pb-[5%] ">Spendable amount left</div>
         <div className="flex flex-row items-baseline-last h-1/3">
           <h2 className="text-2xl text-white font-medium">{currency}</h2>

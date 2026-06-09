@@ -90,7 +90,7 @@ export default function DashboardPage() {
   
   return (
     <div className="flex h-full w-full items-center justify-center bg-[#eaecf1]font-sans">
-      <main className="flex h-full w-full flex-col items-center bg-gray-100 border bg-whitelack sm:items-start dark:bg-[#242424]">
+      <main className="flex h-full w-full flex-col items-center  border bg-whitelack sm:items-start dark:bg-[#242424]">
         
         <div className="flex flex-row justify-between w-full h-full p-[1%] gap-[1%]">
           <div className="w-1/3 h-full flex flex-col gap-[2%]">

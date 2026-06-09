@@ -33,8 +33,8 @@ export function UsagePercentage() {
   } satisfies ChartConfig;
 
   return (
-    <div className="flex flex-col items-center  w-full h-[35%] bg-white border dark:bg-[#696969] border-gray-300 dark:border-[#525252] shadow-lg rounded-2xl">
-      <h1 className="pt-[2%] text-smd font-medium uppercase">Percentage of Usage</h1>
+    <div className="flex flex-col items-center  w-full h-[35%] border dark:bg-[#696969] border-gray-300 dark:border-[#525252]  rounded-2xl">
+      <h1 className="pt-[2%] text-md font-medium ">Percentage of Usage</h1>
       <ResponsiveContainer width="90%" height="90%" className={"pt-[1%]"}>
         <PieChart>
           <ChartTooltip />

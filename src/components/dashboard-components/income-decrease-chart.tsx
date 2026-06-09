@@ -29,8 +29,8 @@ const chartConfig = {
 } satisfies ChartConfig
 
     return (
-        <div className="flex flex-col items-center bg-[#fdfcfd] w-full h-2/5 border border-gray-300 dark:border-[#525252] shadow-lg rounded-xl gap-2">
-            <h1 className="text-md font-medium pt-[3%] uppercase">This Month Income decreasment</h1>
+        <div className="flex flex-col items-center bg-[#fdfcfd] w-full h-2/5 border border-gray-300 dark:border-[#525252] rounded-xl gap-2">
+            <h1 className="text-md font-medium pt-[3%] ">This Month Income decreasment</h1>
             <ChartContainer config={chartConfig}
               className="h-[75%] w-[85%] flex items-center justify-center pt-[4%]">
                 <LineChart

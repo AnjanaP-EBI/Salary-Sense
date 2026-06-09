@@ -31,8 +31,8 @@ export function OverallBalanceChart() {
   } satisfies ChartConfig;
 
   return (
-    <div className="flex flex-col items-center  w-full h-2/5 border bg-white border-gray-300 dark:border-[#525252] shadow-lg rounded-xl gap-2">
-      <h1 className="text-md font-medium uppercase pt-[3%]">Overall Balance</h1>
+    <div className="flex flex-col items-center  w-full h-2/5 border bg-white border-gray-300 dark:border-[#525252] rounded-xl gap-2">
+      <h1 className="text-md font-medium pt-[3%]">Overall Balance</h1>
       <ChartContainer config={chartConfig} className="h-[75%] w-[85%]">
         <LineChart
           accessibilityLayer
